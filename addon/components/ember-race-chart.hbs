@@ -1,0 +1,38 @@
+{{#if (has-block)}}
+  {{yield dataKey}}
+{{else}}
+  {{dataKey}}
+{{/if}}
+<div
+  class="erc-container"
+  {{erc-container-style
+    count=(get chartData "length")
+    space=this.space
+  }}
+>
+  {{#each chartData key="key" as |chart index|}}
+    <div
+      class="erc-bar-container"
+      {{erc-bar-container-style
+        index=index
+        height=this.height
+        space=this.space
+        transitionDuration=this.positionTransitionDuration
+      }}
+    >
+      <div class="erc-bar-key" style={{concat "flex: 0 0 " keyWidth}}>{{chart.key}}</div>
+      <div style="flex: 1 0;display:flex;">
+        <div
+          class="erc-bar"
+          {{erc-bar-style
+            value=chart.value
+            max=this.max
+            barColor=(if chart.color chart.color barColor)
+            transitionDuration=this.widthTransitionDuration
+          }}
+        ></div>
+      </div>
+      <div class="erc-bar-value">{{#if chart.formattedValue}}{{chart.formattedValue}}{{else}}{{chart.value}}{{/if}}</div>
+    </div>
+  {{/each}}
+</div>

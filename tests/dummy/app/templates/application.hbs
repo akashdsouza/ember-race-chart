@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div style="width: 70%;margin:auto;">
+  <h2 id="title">Ember Race Chart</h2>
+  <div style="border:1px solid #666;padding: 20px;border-radius: 25px;">
+    <EmberRaceChart @data={{@model}} @keyWidth="300px" as |currentKey|>
+      <div style="margin-bottom: 20px;">Period: <span style="color:darkblue;text-decoration:underline">{{currentKey}}</span></div>
+    </EmberRaceChart>
+    <em style="opacity:0.8;font-size:0.8rem;margin-top:1em;">Note: The data has been derived using <a href="https://www.npmjs.com/package/google-trends-api" target="_blank" rel="noreferrer noopener">google-trends-api</a> for the key word <span style="color: red">'the flash hero'</span>.</em>
+  </div>
+</div>
