@@ -1,0 +1,25 @@
+.erc-container {
+  position: relative;
+}
+
+.erc-bar-container {
+  position: absolute;
+  display: flex;
+  width: 100%;
+}
+
+.erc-bar-key, .erc-bar-value {
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.erc-bar {
+  transition: all;
+  flex: 1 0;
+  height: 100%;
+}
+
+.erc-bar-value {
+  margin-left: 10px;
+  flex: 0 0;
+}
