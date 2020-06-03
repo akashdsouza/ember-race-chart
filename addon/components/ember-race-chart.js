@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { isPresent } from '@ember/utils';
 import { set } from '@ember/object';
+import { htmlSafe } from '@ember/template';
 
 export default class EmberRaceChartComponent extends Component {
   @tracked dataKey;
@@ -51,8 +52,8 @@ export default class EmberRaceChartComponent extends Component {
     return this.args.barColor || '#000';
   }
 
-  get keyWidth() {
-    return this.args.keyWidth || '200px';
+  get keyStyle() {
+    return htmlSafe(`flex: 0 0 ${this.args.keyWidth || '200px'}`);
   }
 
   get max() {

@@ -1,16 +1,16 @@
 {{#if (has-block)}}
-  {{yield dataKey}}
+  {{yield this.dataKey}}
 {{else}}
-  {{dataKey}}
+  {{this.dataKey}}
 {{/if}}
 <div
   class="erc-container"
   {{erc-container-style
-    count=(get chartData "length")
+    count=(get this.chartData "length")
     space=this.space
   }}
 >
-  {{#each chartData key="key" as |chart index|}}
+  {{#each this.chartData key="key" as |chart index|}}
     <div
       class="erc-bar-container"
       {{erc-bar-container-style
@@ -20,14 +20,14 @@
         transitionDuration=this.positionTransitionDuration
       }}
     >
-      <div class="erc-bar-key" style={{concat "flex: 0 0 " keyWidth}}>{{chart.key}}</div>
+      <div class="erc-bar-key" style={{this.keyStyle}}>{{chart.key}}</div>
       <div style="flex: 1 0;display:flex;">
         <div
           class="erc-bar"
           {{erc-bar-style
             value=chart.value
             max=this.max
-            barColor=(if chart.color chart.color barColor)
+            barColor=(if chart.color chart.color this.barColor)
             transitionDuration=this.widthTransitionDuration
           }}
         ></div>

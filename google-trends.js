@@ -8,12 +8,8 @@ const fs = require('fs');
   let { default: {
     topics = {}
   } = {} } = JSON.parse(results);
-  for (let topic of topics) {
-    let {
-      mid,
-      title,
-      type
-    } = topic;
+  // eslint-disable-next-line no-unused-vars
+  for (let { mid, title } of topics) {
     let topicData = await googleTrends.interestOverTime({
       keyword: mid
     });
@@ -26,8 +22,7 @@ const fs = require('fs');
     if (timelineData.length >= 10) {
       timelineData = timelineData.slice(-10);
     }
-    for (let d of timelineData) {
-      // type = type.substring(0, 10);
+    timelineData.forEach((d) => {
       let value = {
         key: title,
         value: d.value[0]
@@ -37,7 +32,7 @@ const fs = require('fs');
       } else {
         data[d.formattedTime] = [value];
       }
-    }
+    });
   }
 
   fs.mkdir('tests/dummy/public/assets', {recursive:true}, () => {
