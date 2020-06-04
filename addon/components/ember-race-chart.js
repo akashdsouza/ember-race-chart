@@ -40,7 +40,7 @@ export default class EmberRaceChartComponent extends Component {
   }
 
   get space() {
-    return this.args.space || 10;
+    return Number(this.args.space) || 10;
   }
 
   get height() {
