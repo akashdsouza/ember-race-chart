@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'dummy',
     environment,
-    rootURL: '/ember-race-chart/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -44,9 +44,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
-    ENV.locationType = 'none';
-    ENV.rootURL = '/ember-race-chart/'
+    // Use this setting for demo
+    ENV.rootURL = '/ember-race-chart/';
   }
 
   return ENV;
