@@ -1,7 +1,9 @@
 ember-race-chart
 ==============================================================================
 
-Ember addon for rendering race charts with bars. The idea for this addon was inspired from [chart-race-react](https://github.com/Mckinsey666/chart-race-react)
+Ember addon for rendering race charts with bars. The idea for this addon was inspired from [chart-race-react](https://github.com/Mckinsey666/chart-race-react).
+
+[Demo](https://akashdsouza.github.io/ember-race-chart/)
 
 
 Compatibility
